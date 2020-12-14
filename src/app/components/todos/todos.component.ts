@@ -88,7 +88,6 @@ export class TodosComponent implements OnInit {
         await this.api.apiRequest('deleteTodo', this.tasks[i].id, 'delete');
       }
     }
-
     this.init()
   }
 }
