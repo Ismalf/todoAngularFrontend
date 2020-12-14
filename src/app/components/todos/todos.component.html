@@ -14,13 +14,13 @@
             </button>
         </div>
         <div class="todocontainer">
-            <div class="todo" *ngFor="let task of tasks">
+            <div class="todo" *ngFor="let task of filteredTasks">
                 <div class="tasklabel">
-                    <mat-checkbox class="example-margin" [(ngModel)]="task.is_done">
+                    <mat-checkbox class="example-margin" [(ngModel)]="task.is_done" (change)="updateTask(task)">
                         <span [ngClass]="{'completed':task.is_done}">{{task.name}}</span>
                     </mat-checkbox>
                 </div>
-                <button mat-icon-button>
+                <button mat-icon-button (click)="deleteTask(task)">
                     <mat-icon>clear</mat-icon>
                 </button>
             </div>
@@ -31,15 +31,15 @@
                     {{getTasksLeft()}} tasks lefts
                 </button>
             </div>
-            <div class="filters">
-                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-                    <mat-button-toggle value="bold">All</mat-button-toggle>
-                    <mat-button-toggle value="italic">Active</mat-button-toggle>
-                    <mat-button-toggle value="underline">Completed</mat-button-toggle>
+            <div class="filters" >
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="filter" (change)="applyFilter()">
+                    <mat-button-toggle value="all">All</mat-button-toggle>
+                    <mat-button-toggle value="notdone">Active</mat-button-toggle>
+                    <mat-button-toggle value="done">Completed</mat-button-toggle>
                 </mat-button-toggle-group>
             </div>
-            <div class="clearcompleted">
-                <button mat-button>Clear completed</button>
+            <div class="clearcompleted" >
+                <button mat-button (click)="clearCompleted()">Clear completed</button>
             </div>
         </div>
     </div>

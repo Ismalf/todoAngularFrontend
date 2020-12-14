@@ -22,10 +22,10 @@ export class ApiService {
           req = this.http.get(this.url + action);
           break;
         case 'put':
-          req = this.http.put(this.url + action, sendData, { headers: headers });
+          req = this.http.put(this.url + action, sendData);
           break;
         case 'delete':
-          req = this.http.delete(this.url + action + sendData, { headers: headers });
+          req = this.http.delete(this.url + action + '/' + sendData);
           break;
       }
       req.subscribe(
