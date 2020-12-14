@@ -1,0 +1,62 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .innercontainer {
+        width: 80%;
+        max-width: 500px;
+        min-width: 480px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px 0 #aaa;
+        .taskinput {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            .tasktextinput {
+                width: 80%;
+            }
+        }
+        .todo {
+            .tasklabel {
+                margin: 0 10px;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 10px 0;
+        }
+        .footer{
+            border-top: 1px solid #ddd;
+            display: flex;
+            padding-top: 2px;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            .filters{
+                border: 0;
+                *{
+                    border: 0;
+                }
+            }
+        }
+    }
+}
+.opacity-zero {
+    opacity: 0;
+    transition: 500ms;
+}
+.opacity-one {
+    transition: 500ms;
+    opacity: 1;
+}
+.completed{
+    text-decoration: line-through;
+}

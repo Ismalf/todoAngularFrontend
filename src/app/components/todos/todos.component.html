@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="innercontainer">
+        <div class="taskinput">
+            <button mat-icon-button>
+                <mat-icon>expand_more</mat-icon>
+            </button>
+            <mat-form-field class="tasktextinput">
+                <mat-label>What needs to be done?</mat-label>
+                <input type="tel" matInput placeholder="Buy Milk" [(ngModel)]="newTask.name"
+                    (keyup)="saveTask($event)">
+            </mat-form-field>
+            <button mat-icon-button [disabled]="newTask.name===''">
+                <mat-icon [ngClass]="{'opacity-one':newTask.name!==''}" class="opacity-zero">done</mat-icon>
+            </button>
+        </div>
+        <div class="todocontainer">
+            <div class="todo" *ngFor="let task of tasks">
+                <div class="tasklabel">
+                    <mat-checkbox class="example-margin" [(ngModel)]="task.is_done">
+                        <span [ngClass]="{'completed':task.is_done}">{{task.name}}</span>
+                    </mat-checkbox>
+                </div>
+                <button mat-icon-button>
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="tasksleft">
+                <button mat-button>
+                    {{getTasksLeft()}} tasks lefts
+                </button>
+            </div>
+            <div class="filters">
+                <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                    <mat-button-toggle value="bold">All</mat-button-toggle>
+                    <mat-button-toggle value="italic">Active</mat-button-toggle>
+                    <mat-button-toggle value="underline">Completed</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
+            <div class="clearcompleted">
+                <button mat-button>Clear completed</button>
+            </div>
+        </div>
+    </div>
+</div>
